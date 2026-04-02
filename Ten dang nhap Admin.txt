@@ -1,0 +1,13 @@
+Ten dang nhap: Admin
+email: Admin@gmail.com
+mk: 123456
+Tên Đăng Nhập: user1
+email: User@gmail.com
+mk:1122
+
+Công việc:
+Nguyễn Xuân Sơn: Trang Tất cả sản phẩm, Kệ hoa chúc mừng, Giỏ Hoa, Hoa Cưới, Hoa Sáp, LayoutPage chung
+Nguyễn Trần Đình Thanh: Trang Chủ, Trang chi tiết sản phẩm, Admin Quản lý sản phẩm, Quản lý Khách hàng, Liên hệ, LayoutPageAdmin
+Thanh Lâm: Đăng Nhập, Đăng Ký, Bó Hoa Chi Tiết, Giỏ hàng 
+
+Link: Video: https://youtu.be/TL5gHv8VYAg
