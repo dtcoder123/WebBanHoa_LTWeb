@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFFirstDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CHITIET_DONHANG">
+    <Key>
+      <PropertyRef Name="MaDH" />
+      <PropertyRef Name="MaHoa" />
+    </Key>
+    <Property Name="MaDH" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="MaHoa" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="DonGia" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="CHITIET_GIOHANG">
+    <Key>
+      <PropertyRef Name="MaGH" />
+      <PropertyRef Name="MaHoa" />
+    </Key>
+    <Property Name="MaGH" Type="int" Nullable="false" />
+    <Property Name="MaHoa" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="SoLuong" Type="int" />
+  </EntityType>
+  <EntityType Name="DONHANG">
+    <Key>
+      <PropertyRef Name="MaDH" />
+    </Key>
+    <Property Name="MaDH" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="MaKH" Type="varchar" MaxLength="10" />
+    <Property Name="NgayDat" Type="datetime" />
+    <Property Name="TongTien" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DiaChiGiao" Type="nvarchar" MaxLength="255" />
+    <Property Name="TrangThai" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DONHANG_KHUYENMAI">
+    <Key>
+      <PropertyRef Name="MaDH" />
+      <PropertyRef Name="MaKM" />
+    </Key>
+    <Property Name="MaDH" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="MaKM" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GIOHANG">
+    <Key>
+      <PropertyRef Name="MaGH" />
+    </Key>
+    <Property Name="MaGH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaKH" Type="varchar" MaxLength="10" />
+    <Property Name="NgayTao" Type="datetime" />
+  </EntityType>
+  <EntityType Name="HOA">
+    <Key>
+      <PropertyRef Name="MaHoa" />
+    </Key>
+    <Property Name="MaHoa" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TenHoa" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="MaLoai" Type="varchar" MaxLength="10" />
+    <Property Name="Gia" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="SoLuongTon" Type="int" />
+    <Property Name="MoTa" Type="nvarchar" MaxLength="500" />
+    <Property Name="HinhAnh" Type="nvarchar" MaxLength="255" />
+    <Property Name="TrangThai" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="KHACHHANG">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="SoDienThoai" Type="nvarchar" MaxLength="20" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="255" />
+    <Property Name="NgayDangKy" Type="date" />
+  </EntityType>
+  <EntityType Name="KHUYENMAI">
+    <Key>
+      <PropertyRef Name="MaKM" />
+    </Key>
+    <Property Name="MaKM" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TenKM" Type="nvarchar" MaxLength="100" />
+    <Property Name="PhanTramGiam" Type="int" />
+    <Property Name="NgayBatDau" Type="date" />
+    <Property Name="NgayKetThuc" Type="date" />
+    <Property Name="DieuKien" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="LOAIHOA">
+    <Key>
+      <PropertyRef Name="MaLoai" />
+    </Key>
+    <Property Name="MaLoai" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TenLoai" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="MoTa" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaNV" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" />
+    <Property Name="ChucVu" Type="nvarchar" MaxLength="50" />
+    <Property Name="Luong" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="NgayVaoLam" Type="date" />
+  </EntityType>
+  <EntityType Name="TAIKHOAN">
+    <Key>
+      <PropertyRef Name="TenDangNhap" />
+    </Key>
+    <Property Name="TenDangNhap" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Matkhau" Type="nvarchar" MaxLength="20" />
+    <Property Name="quyen" Type="nvarchar" MaxLength="20" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__CHITIET_D__MaHoa__4F7CD00D">
+    <End Role="HOA" Type="Self.HOA" Multiplicity="1" />
+    <End Role="CHITIET_DONHANG" Type="Self.CHITIET_DONHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOA">
+        <PropertyRef Name="MaHoa" />
+      </Principal>
+      <Dependent Role="CHITIET_DONHANG">
+        <PropertyRef Name="MaHoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIET_DO__MaDH__4E88ABD4">
+    <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="1" />
+    <End Role="CHITIET_DONHANG" Type="Self.CHITIET_DONHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONHANG">
+        <PropertyRef Name="MaDH" />
+      </Principal>
+      <Dependent Role="CHITIET_DONHANG">
+        <PropertyRef Name="MaDH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIET_G__MaHoa__2A164134">
+    <End Role="HOA" Type="Self.HOA" Multiplicity="1" />
+    <End Role="CHITIET_GIOHANG" Type="Self.CHITIET_GIOHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOA">
+        <PropertyRef Name="MaHoa" />
+      </Principal>
+      <Dependent Role="CHITIET_GIOHANG">
+        <PropertyRef Name="MaHoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIET_GI__MaGH__29221CFB">
+    <End Role="GIOHANG" Type="Self.GIOHANG" Multiplicity="1" />
+    <End Role="CHITIET_GIOHANG" Type="Self.CHITIET_GIOHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GIOHANG">
+        <PropertyRef Name="MaGH" />
+      </Principal>
+      <Dependent Role="CHITIET_GIOHANG">
+        <PropertyRef Name="MaGH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DONHANG__MaKH__49C3F6B7">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+    <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="DONHANG">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DONHANG_KH__MaDH__59063A47">
+    <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="1" />
+    <End Role="DONHANG_KHUYENMAI" Type="Self.DONHANG_KHUYENMAI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONHANG">
+        <PropertyRef Name="MaDH" />
+      </Principal>
+      <Dependent Role="DONHANG_KHUYENMAI">
+        <PropertyRef Name="MaDH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DONHANG_KH__MaKM__59FA5E80">
+    <End Role="KHUYENMAI" Type="Self.KHUYENMAI" Multiplicity="1" />
+    <End Role="DONHANG_KHUYENMAI" Type="Self.DONHANG_KHUYENMAI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHUYENMAI">
+        <PropertyRef Name="MaKM" />
+      </Principal>
+      <Dependent Role="DONHANG_KHUYENMAI">
+        <PropertyRef Name="MaKM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GIOHANG__MaKH__74AE54BC">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+    <End Role="GIOHANG" Type="Self.GIOHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="GIOHANG">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HOA__MaLoai__3C69FB99">
+    <End Role="LOAIHOA" Type="Self.LOAIHOA" Multiplicity="0..1" />
+    <End Role="HOA" Type="Self.HOA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIHOA">
+        <PropertyRef Name="MaLoai" />
+      </Principal>
+      <Dependent Role="HOA">
+        <PropertyRef Name="MaLoai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EFFirstDatabaseModelStoreContainer">
+    <EntitySet Name="CHITIET_DONHANG" EntityType="Self.CHITIET_DONHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHITIET_GIOHANG" EntityType="Self.CHITIET_GIOHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DONHANG" EntityType="Self.DONHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DONHANG_KHUYENMAI" EntityType="Self.DONHANG_KHUYENMAI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GIOHANG" EntityType="Self.GIOHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HOA" EntityType="Self.HOA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHUYENMAI" EntityType="Self.KHUYENMAI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOAIHOA" EntityType="Self.LOAIHOA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TAIKHOAN" EntityType="Self.TAIKHOAN" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__CHITIET_D__MaHoa__4F7CD00D" Association="Self.FK__CHITIET_D__MaHoa__4F7CD00D">
+      <End Role="HOA" EntitySet="HOA" />
+      <End Role="CHITIET_DONHANG" EntitySet="CHITIET_DONHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIET_DO__MaDH__4E88ABD4" Association="Self.FK__CHITIET_DO__MaDH__4E88ABD4">
+      <End Role="DONHANG" EntitySet="DONHANG" />
+      <End Role="CHITIET_DONHANG" EntitySet="CHITIET_DONHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIET_G__MaHoa__2A164134" Association="Self.FK__CHITIET_G__MaHoa__2A164134">
+      <End Role="HOA" EntitySet="HOA" />
+      <End Role="CHITIET_GIOHANG" EntitySet="CHITIET_GIOHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIET_GI__MaGH__29221CFB" Association="Self.FK__CHITIET_GI__MaGH__29221CFB">
+      <End Role="GIOHANG" EntitySet="GIOHANG" />
+      <End Role="CHITIET_GIOHANG" EntitySet="CHITIET_GIOHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DONHANG__MaKH__49C3F6B7" Association="Self.FK__DONHANG__MaKH__49C3F6B7">
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+      <End Role="DONHANG" EntitySet="DONHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DONHANG_KH__MaDH__59063A47" Association="Self.FK__DONHANG_KH__MaDH__59063A47">
+      <End Role="DONHANG" EntitySet="DONHANG" />
+      <End Role="DONHANG_KHUYENMAI" EntitySet="DONHANG_KHUYENMAI" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DONHANG_KH__MaKM__59FA5E80" Association="Self.FK__DONHANG_KH__MaKM__59FA5E80">
+      <End Role="KHUYENMAI" EntitySet="KHUYENMAI" />
+      <End Role="DONHANG_KHUYENMAI" EntitySet="DONHANG_KHUYENMAI" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GIOHANG__MaKH__74AE54BC" Association="Self.FK__GIOHANG__MaKH__74AE54BC">
+      <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+      <End Role="GIOHANG" EntitySet="GIOHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HOA__MaLoai__3C69FB99" Association="Self.FK__HOA__MaLoai__3C69FB99">
+      <End Role="LOAIHOA" EntitySet="LOAIHOA" />
+      <End Role="HOA" EntitySet="HOA" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WebBanHoa.Models.KHACHHANG>
+@{
+    ViewBag.Title = "Quản Lý Khách Hàng";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2 class="mb-4">👥 @ViewBag.Title</h2>
+
+<div class="card shadow-sm">
+    <div class="card-header bg-white">
+        <h4 class="mb-0">Danh Sách Khách Hàng</h4>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th style="width: 10%;">Mã KH</th>
+                        <th style="width: 25%;">Họ Tên Khách Hàng</th>
+                        <th style="width: 25%;">Email</th>
+                        <th style="width: 20%;">Địa Chỉ</th>
+                        <th style="width: 10%;">Điện Thoại</th>
+                        <th style="width: 10%;">Thao Tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.MaKH</td>
+                            <td>@item.HoTen</td>
+                            <td>@item.Email</td>
+                            <td>@item.DiaChi</td>
+                            <td>@item.SoDienThoai</td>
+                            <td>
+                                <a href="@Url.Action("ChiTietDonHangKH", "Admin", new { maKH = item.MaKH })"
+                                   class="btn btn-sm btn-info" title="Xem Đơn Hàng">
+                                    <i class="bi bi-cart4"></i> Đơn hàng
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

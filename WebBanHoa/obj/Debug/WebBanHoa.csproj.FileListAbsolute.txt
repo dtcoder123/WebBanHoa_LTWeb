@@ -1,0 +1,116 @@
+C:\Users\Admin\Desktop\Do An LTWEB\BanHoa\WebBanHoa\WebBanHoa\bin\WebBanHoa.dll.config
+C:\Users\Admin\Desktop\Do An LTWEB\BanHoa\WebBanHoa\WebBanHoa\bin\WebBanHoa.dll
+C:\Users\Admin\Desktop\Do An LTWEB\BanHoa\WebBanHoa\WebBanHoa\bin\WebBanHoa.pdb
+C:\Users\Admin\Desktop\Do An LTWEB\BanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Helpers.dll
+C:\Users\Admin\Desktop\Do An LTWEB\BanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Mvc.dll
+C:\Users\Admin\Desktop\Do An LTWEB\BanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Razor.dll
+C:\Users\Admin\Desktop\Do An LTWEB\BanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Admin\Desktop\Do An LTWEB\BanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Webpages.dll
+C:\Users\Admin\Desktop\Do An LTWEB\BanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Webpages.Razor.dll
+C:\Users\Admin\Desktop\Do An LTWEB\BanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Razor.xml
+C:\Users\Admin\Desktop\Do An LTWEB\BanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Webpages.xml
+C:\Users\Admin\Desktop\Do An LTWEB\BanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Admin\Desktop\Do An LTWEB\BanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Webpages.Razor.xml
+C:\Users\Admin\Desktop\Do An LTWEB\BanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Helpers.xml
+C:\Users\Admin\Desktop\Do An LTWEB\BanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Mvc.xml
+C:\Users\Admin\Desktop\Do An LTWEB\BanHoa\WebBanHoa\WebBanHoa\obj\Debug\WebBanHoa.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Desktop\Do An LTWEB\BanHoa\WebBanHoa\WebBanHoa\obj\Debug\WebBanHoa.dll
+C:\Users\Admin\Desktop\Do An LTWEB\BanHoa\WebBanHoa\WebBanHoa\obj\Debug\WebBanHoa.pdb
+C:\Users\Admin\Desktop\Do An LTWEB\BanHoa\WebBanHoa\WebBanHoa\bin\EntityFramework.dll
+C:\Users\Admin\Desktop\Do An LTWEB\BanHoa\WebBanHoa\WebBanHoa\bin\EntityFramework.SqlServer.dll
+C:\Users\Admin\Desktop\Do An LTWEB\BanHoa\WebBanHoa\WebBanHoa\bin\EntityFramework.xml
+C:\Users\Admin\Desktop\Do An LTWEB\BanHoa\WebBanHoa\WebBanHoa\bin\EntityFramework.SqlServer.xml
+C:\Users\ADMIN\Downloads\BanHoa\WebBanHoa\WebBanHoa\bin\WebBanHoa.dll.config
+C:\Users\ADMIN\Downloads\BanHoa\WebBanHoa\WebBanHoa\bin\WebBanHoa.dll
+C:\Users\ADMIN\Downloads\BanHoa\WebBanHoa\WebBanHoa\bin\WebBanHoa.pdb
+C:\Users\ADMIN\Downloads\BanHoa\WebBanHoa\WebBanHoa\bin\EntityFramework.dll
+C:\Users\ADMIN\Downloads\BanHoa\WebBanHoa\WebBanHoa\bin\EntityFramework.SqlServer.dll
+C:\Users\ADMIN\Downloads\BanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Helpers.dll
+C:\Users\ADMIN\Downloads\BanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Mvc.dll
+C:\Users\ADMIN\Downloads\BanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Razor.dll
+C:\Users\ADMIN\Downloads\BanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Webpages.Deployment.dll
+C:\Users\ADMIN\Downloads\BanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Webpages.dll
+C:\Users\ADMIN\Downloads\BanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Webpages.Razor.dll
+C:\Users\ADMIN\Downloads\BanHoa\WebBanHoa\WebBanHoa\bin\EntityFramework.xml
+C:\Users\ADMIN\Downloads\BanHoa\WebBanHoa\WebBanHoa\bin\EntityFramework.SqlServer.xml
+C:\Users\ADMIN\Downloads\BanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Razor.xml
+C:\Users\ADMIN\Downloads\BanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Webpages.xml
+C:\Users\ADMIN\Downloads\BanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Webpages.Deployment.xml
+C:\Users\ADMIN\Downloads\BanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Webpages.Razor.xml
+C:\Users\ADMIN\Downloads\BanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Helpers.xml
+C:\Users\ADMIN\Downloads\BanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Mvc.xml
+C:\Users\ADMIN\Downloads\BanHoa\WebBanHoa\WebBanHoa\obj\Debug\WebBanHoa.csprojResolveAssemblyReference.cache
+C:\Users\ADMIN\Downloads\BanHoa\WebBanHoa\WebBanHoa\obj\Debug\WebBanHoa.dll
+C:\Users\ADMIN\Downloads\BanHoa\WebBanHoa\WebBanHoa\obj\Debug\WebBanHoa.pdb
+D:\ltw\WebBanHoa\WebBanHoa\WebBanHoa\bin\WebBanHoa.dll.config
+D:\ltw\WebBanHoa\WebBanHoa\WebBanHoa\bin\WebBanHoa.dll
+D:\ltw\WebBanHoa\WebBanHoa\WebBanHoa\bin\WebBanHoa.pdb
+D:\ltw\WebBanHoa\WebBanHoa\WebBanHoa\bin\EntityFramework.dll
+D:\ltw\WebBanHoa\WebBanHoa\WebBanHoa\bin\EntityFramework.SqlServer.dll
+D:\ltw\WebBanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Helpers.dll
+D:\ltw\WebBanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Mvc.dll
+D:\ltw\WebBanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Razor.dll
+D:\ltw\WebBanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Webpages.Deployment.dll
+D:\ltw\WebBanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Webpages.dll
+D:\ltw\WebBanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Webpages.Razor.dll
+D:\ltw\WebBanHoa\WebBanHoa\WebBanHoa\bin\EntityFramework.xml
+D:\ltw\WebBanHoa\WebBanHoa\WebBanHoa\bin\EntityFramework.SqlServer.xml
+D:\ltw\WebBanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Razor.xml
+D:\ltw\WebBanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Webpages.xml
+D:\ltw\WebBanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Webpages.Deployment.xml
+D:\ltw\WebBanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Webpages.Razor.xml
+D:\ltw\WebBanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Helpers.xml
+D:\ltw\WebBanHoa\WebBanHoa\WebBanHoa\bin\System.Web.Mvc.xml
+D:\ltw\WebBanHoa\WebBanHoa\WebBanHoa\obj\Debug\WebBanHoa.csproj.AssemblyReference.cache
+D:\ltw\WebBanHoa\WebBanHoa\WebBanHoa\obj\Debug\WebBanHoa.csproj.CoreCompileInputs.cache
+D:\ltw\WebBanHoa\WebBanHoa\WebBanHoa\obj\Debug\WebBanHoa.csproj.Up2Date
+D:\ltw\WebBanHoa\WebBanHoa\WebBanHoa\obj\Debug\WebBanHoa.dll
+D:\ltw\WebBanHoa\WebBanHoa\WebBanHoa\obj\Debug\WebBanHoa.pdb
+D:\ltw\WebBanHoa\WebBanHoa\WebBanHoa\bin\Microsoft.Web.Infrastructure.dll
+E:\LuuDuLieuSinhVien\2001230431_ChauThanhLam\WebBanHoa\WebBanHoa\bin\WebBanHoa.dll.config
+E:\LuuDuLieuSinhVien\2001230431_ChauThanhLam\WebBanHoa\WebBanHoa\bin\WebBanHoa.dll
+E:\LuuDuLieuSinhVien\2001230431_ChauThanhLam\WebBanHoa\WebBanHoa\bin\WebBanHoa.pdb
+E:\LuuDuLieuSinhVien\2001230431_ChauThanhLam\WebBanHoa\WebBanHoa\bin\EntityFramework.dll
+E:\LuuDuLieuSinhVien\2001230431_ChauThanhLam\WebBanHoa\WebBanHoa\bin\EntityFramework.SqlServer.dll
+E:\LuuDuLieuSinhVien\2001230431_ChauThanhLam\WebBanHoa\WebBanHoa\bin\System.Web.Helpers.dll
+E:\LuuDuLieuSinhVien\2001230431_ChauThanhLam\WebBanHoa\WebBanHoa\bin\System.Web.Mvc.dll
+E:\LuuDuLieuSinhVien\2001230431_ChauThanhLam\WebBanHoa\WebBanHoa\bin\System.Web.Razor.dll
+E:\LuuDuLieuSinhVien\2001230431_ChauThanhLam\WebBanHoa\WebBanHoa\bin\System.Web.WebPages.Deployment.dll
+E:\LuuDuLieuSinhVien\2001230431_ChauThanhLam\WebBanHoa\WebBanHoa\bin\System.Web.WebPages.dll
+E:\LuuDuLieuSinhVien\2001230431_ChauThanhLam\WebBanHoa\WebBanHoa\bin\System.Web.WebPages.Razor.dll
+E:\LuuDuLieuSinhVien\2001230431_ChauThanhLam\WebBanHoa\WebBanHoa\bin\EntityFramework.xml
+E:\LuuDuLieuSinhVien\2001230431_ChauThanhLam\WebBanHoa\WebBanHoa\bin\EntityFramework.SqlServer.xml
+E:\LuuDuLieuSinhVien\2001230431_ChauThanhLam\WebBanHoa\WebBanHoa\bin\System.Web.Helpers.xml
+E:\LuuDuLieuSinhVien\2001230431_ChauThanhLam\WebBanHoa\WebBanHoa\bin\System.Web.Mvc.xml
+E:\LuuDuLieuSinhVien\2001230431_ChauThanhLam\WebBanHoa\WebBanHoa\bin\System.Web.Razor.xml
+E:\LuuDuLieuSinhVien\2001230431_ChauThanhLam\WebBanHoa\WebBanHoa\bin\System.Web.WebPages.xml
+E:\LuuDuLieuSinhVien\2001230431_ChauThanhLam\WebBanHoa\WebBanHoa\bin\System.Web.WebPages.Deployment.xml
+E:\LuuDuLieuSinhVien\2001230431_ChauThanhLam\WebBanHoa\WebBanHoa\bin\System.Web.WebPages.Razor.xml
+E:\LuuDuLieuSinhVien\2001230431_ChauThanhLam\WebBanHoa\WebBanHoa\obj\Debug\WebBanHoa.csprojResolveAssemblyReference.cache
+E:\LuuDuLieuSinhVien\2001230431_ChauThanhLam\WebBanHoa\WebBanHoa\obj\Debug\WebBanHoa.dll
+E:\LuuDuLieuSinhVien\2001230431_ChauThanhLam\WebBanHoa\WebBanHoa\obj\Debug\WebBanHoa.pdb
+D:\ltw\WebBanHoa1\WebBanHoa\WebBanHoa\bin\WebBanHoa.dll.config
+D:\ltw\WebBanHoa1\WebBanHoa\WebBanHoa\bin\WebBanHoa.dll
+D:\ltw\WebBanHoa1\WebBanHoa\WebBanHoa\bin\WebBanHoa.pdb
+D:\ltw\WebBanHoa1\WebBanHoa\WebBanHoa\bin\EntityFramework.dll
+D:\ltw\WebBanHoa1\WebBanHoa\WebBanHoa\bin\EntityFramework.SqlServer.dll
+D:\ltw\WebBanHoa1\WebBanHoa\WebBanHoa\bin\Microsoft.Web.Infrastructure.dll
+D:\ltw\WebBanHoa1\WebBanHoa\WebBanHoa\bin\System.Web.Helpers.dll
+D:\ltw\WebBanHoa1\WebBanHoa\WebBanHoa\bin\System.Web.Mvc.dll
+D:\ltw\WebBanHoa1\WebBanHoa\WebBanHoa\bin\System.Web.Razor.dll
+D:\ltw\WebBanHoa1\WebBanHoa\WebBanHoa\bin\System.Web.WebPages.Deployment.dll
+D:\ltw\WebBanHoa1\WebBanHoa\WebBanHoa\bin\System.Web.WebPages.dll
+D:\ltw\WebBanHoa1\WebBanHoa\WebBanHoa\bin\System.Web.WebPages.Razor.dll
+D:\ltw\WebBanHoa1\WebBanHoa\WebBanHoa\bin\EntityFramework.xml
+D:\ltw\WebBanHoa1\WebBanHoa\WebBanHoa\bin\EntityFramework.SqlServer.xml
+D:\ltw\WebBanHoa1\WebBanHoa\WebBanHoa\bin\System.Web.Helpers.xml
+D:\ltw\WebBanHoa1\WebBanHoa\WebBanHoa\bin\System.Web.Mvc.xml
+D:\ltw\WebBanHoa1\WebBanHoa\WebBanHoa\bin\System.Web.Razor.xml
+D:\ltw\WebBanHoa1\WebBanHoa\WebBanHoa\bin\System.Web.WebPages.xml
+D:\ltw\WebBanHoa1\WebBanHoa\WebBanHoa\bin\System.Web.WebPages.Deployment.xml
+D:\ltw\WebBanHoa1\WebBanHoa\WebBanHoa\bin\System.Web.WebPages.Razor.xml
+D:\ltw\WebBanHoa1\WebBanHoa\WebBanHoa\obj\Debug\WebBanHoa.csproj.AssemblyReference.cache
+D:\ltw\WebBanHoa1\WebBanHoa\WebBanHoa\obj\Debug\WebBanHoa.csproj.CoreCompileInputs.cache
+D:\ltw\WebBanHoa1\WebBanHoa\WebBanHoa\obj\Debug\WebBanHoa.csproj.Up2Date
+D:\ltw\WebBanHoa1\WebBanHoa\WebBanHoa\obj\Debug\WebBanHoa.dll
+D:\ltw\WebBanHoa1\WebBanHoa\WebBanHoa\obj\Debug\WebBanHoa.pdb

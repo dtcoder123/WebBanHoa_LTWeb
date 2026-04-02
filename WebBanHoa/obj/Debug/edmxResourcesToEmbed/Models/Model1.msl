@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EFFirstDatabaseModelStoreContainer" CdmEntityContainer="EFFirstDatabaseEntities">
+    <EntitySetMapping Name="CHITIET_DONHANG">
+      <EntityTypeMapping TypeName="EFFirstDatabaseModel.CHITIET_DONHANG">
+        <MappingFragment StoreEntitySet="CHITIET_DONHANG">
+          <ScalarProperty Name="MaDH" ColumnName="MaDH" />
+          <ScalarProperty Name="MaHoa" ColumnName="MaHoa" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DONHANGs">
+      <EntityTypeMapping TypeName="EFFirstDatabaseModel.DONHANG">
+        <MappingFragment StoreEntitySet="DONHANG">
+          <ScalarProperty Name="MaDH" ColumnName="MaDH" />
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+          <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+          <ScalarProperty Name="DiaChiGiao" ColumnName="DiaChiGiao" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIOHANGs">
+      <EntityTypeMapping TypeName="EFFirstDatabaseModel.GIOHANG">
+        <MappingFragment StoreEntitySet="GIOHANG">
+          <ScalarProperty Name="MaGH" ColumnName="MaGH" />
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+          <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOAs">
+      <EntityTypeMapping TypeName="EFFirstDatabaseModel.HOA">
+        <MappingFragment StoreEntitySet="HOA">
+          <ScalarProperty Name="MaHoa" ColumnName="MaHoa" />
+          <ScalarProperty Name="TenHoa" ColumnName="TenHoa" />
+          <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+          <ScalarProperty Name="SoLuongTon" ColumnName="SoLuongTon" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHACHHANGs">
+      <EntityTypeMapping TypeName="EFFirstDatabaseModel.KHACHHANG">
+        <MappingFragment StoreEntitySet="KHACHHANG">
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="NgayDangKy" ColumnName="NgayDangKy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHUYENMAIs">
+      <EntityTypeMapping TypeName="EFFirstDatabaseModel.KHUYENMAI">
+        <MappingFragment StoreEntitySet="KHUYENMAI">
+          <ScalarProperty Name="MaKM" ColumnName="MaKM" />
+          <ScalarProperty Name="TenKM" ColumnName="TenKM" />
+          <ScalarProperty Name="PhanTramGiam" ColumnName="PhanTramGiam" />
+          <ScalarProperty Name="NgayBatDau" ColumnName="NgayBatDau" />
+          <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
+          <ScalarProperty Name="DieuKien" ColumnName="DieuKien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAIHOAs">
+      <EntityTypeMapping TypeName="EFFirstDatabaseModel.LOAIHOA">
+        <MappingFragment StoreEntitySet="LOAIHOA">
+          <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
+          <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHANVIENs">
+      <EntityTypeMapping TypeName="EFFirstDatabaseModel.NHANVIEN">
+        <MappingFragment StoreEntitySet="NHANVIEN">
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
+          <ScalarProperty Name="Luong" ColumnName="Luong" />
+          <ScalarProperty Name="NgayVaoLam" ColumnName="NgayVaoLam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="DONHANG_KHUYENMAI" TypeName="EFFirstDatabaseModel.DONHANG_KHUYENMAI" StoreEntitySet="DONHANG_KHUYENMAI">
+      <EndProperty Name="DONHANG">
+        <ScalarProperty Name="MaDH" ColumnName="MaDH" />
+      </EndProperty>
+      <EndProperty Name="KHUYENMAI">
+        <ScalarProperty Name="MaKM" ColumnName="MaKM" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="TAIKHOANs">
+      <EntityTypeMapping TypeName="EFFirstDatabaseModel.TAIKHOAN">
+        <MappingFragment StoreEntitySet="TAIKHOAN">
+          <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="quyen" ColumnName="quyen" />
+          <ScalarProperty Name="Matkhau" ColumnName="Matkhau" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHITIET_GIOHANG">
+      <EntityTypeMapping TypeName="EFFirstDatabaseModel.CHITIET_GIOHANG">
+        <MappingFragment StoreEntitySet="CHITIET_GIOHANG">
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="MaHoa" ColumnName="MaHoa" />
+          <ScalarProperty Name="MaGH" ColumnName="MaGH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,134 @@
+﻿@model IEnumerable<WebBanHoa.Models.HOA>
+@{
+    ViewBag.Title = "Quản Lý Tồn Kho";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2 class="mb-4">📦 @ViewBag.Title</h2>
+
+<div class="card shadow-sm">
+    <div class="card-header bg-white">
+        <h4 class="mb-0">Bảng Tồn Kho Chi Tiết</h4>
+    </div>
+
+    <div class="card-body">
+        <div id="alertPlaceholder" class="mb-3">
+            @* Dùng để hiển thị thông báo AJAX *@
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th style="width: 10%;">Mã Hoa</th>
+                        <th style="width: 25%;">Tên Hoa</th>
+                        <th style="width: 15%;">Loại</th>
+                        <th style="width: 10%;">Giá Bán</th>
+                        <th style="width: 10%;">Tồn Hiện Tại</th>
+                        <th style="width: 10%;">Trạng Thái</th>
+                        <th style="width: 20%;">Thao Tác Kho</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr data-id="@item.MaHoa">
+                            <td>@item.MaHoa</td>
+                            <td>@item.TenHoa</td>
+                            <td>@(item.LOAIHOA.TenLoai)</td>
+                            <td>@item.Gia.ToString("N0") VNĐ</td>
+
+                            <td class="quantity-cell">@item.SoLuongTon</td>
+
+                            <td>
+                                @{
+                                    var isAvailable = item.SoLuongTon > 0;
+                                    var statusText = isAvailable ? "Còn hàng" : "Hết hàng";
+                                    var badgeClass = isAvailable ? "bg-success" : "bg-danger";
+                                }
+                                <span class="badge @badgeClass status-badge">@statusText</span>
+                            </td>
+
+                            <td>
+                                <div class="input-group">
+                                    <input type="number" min="-9999" value="1" class="form-control form-control-sm quantity-input" style="width: 50px;">
+
+                                    <button class="btn btn-sm btn-success action-btn" data-action="nhap" title="Nhập hàng"><i class="bi bi-box-arrow-in-down"></i> Nhập</button>
+
+                                    <button class="btn btn-sm btn-warning action-btn" data-action="xuat" title="Xuất hàng"><i class="bi bi-box-arrow-up"></i> Xuất</button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            // Xử lý sự kiện click cho cả nút Nhập và Xuất
+            $('.action-btn').click(function () {
+                var $button = $(this);
+                var $row = $button.closest('tr');
+                var maHoa = $row.data('id');
+                var actionType = $button.data('action');
+                var $quantityInput = $row.find('.quantity-input');
+                var $quantityCell = $row.find('.quantity-cell');
+                var $statusBadge = $row.find('.status-badge');
+                var $alert = $('#alertPlaceholder');
+
+                // Lấy số lượng nhập/xuất
+                var amount = parseInt($quantityInput.val());
+                if (isNaN(amount) || amount <= 0) {
+                    alert('Số lượng phải là số nguyên dương.');
+                    return;
+                }
+
+                // Nếu là Xuất (Bán hàng), số lượng gửi lên server phải là số âm
+                var soLuongThem = (actionType === 'xuat') ? -amount : amount;
+
+                $button.prop('disabled', true).text('...'); // Vô hiệu hóa nút khi xử lý
+
+                // Gọi AJAX POST đến Action CapNhatKho
+                $.post('@Url.Action("CapNhatKho", "Admin")', { maHoa: maHoa, soLuongThem: soLuongThem })
+                    .done(function (response) {
+                        $alert.empty();
+
+                        if (response.success) {
+                            // Cập nhật số lượng tồn kho mới trên View
+                            $quantityCell.text(response.newQuantity);
+
+                            // Cập nhật trạng thái
+                            if (response.newQuantity > 0) {
+                                $statusBadge.removeClass('bg-danger').addClass('bg-success').text('Còn hàng');
+                            } else {
+                                $statusBadge.removeClass('bg-success').addClass('bg-danger').text('Hết hàng');
+                            }
+
+                            // Hiển thị thông báo thành công
+                            $alert.append('<div class="alert alert-success alert-dismissible fade show">' + response.message + '<button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+
+                        } else {
+                            // Hiển thị thông báo lỗi
+                            $alert.append('<div class="alert alert-danger alert-dismissible fade show">Cập nhật thất bại: ' + response.message + '<button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+                        }
+                    })
+                    .fail(function (xhr, status, error) {
+                        $alert.empty();
+                        $alert.append('<div class="alert alert-danger alert-dismissible fade show">Lỗi kết nối server (Status: ' + xhr.status + ').' + '<button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+                        console.error("AJAX Error:", xhr.responseText, status, error);
+                    })
+                    .always(function() {
+                        // Kích hoạt lại nút
+                        $button.prop('disabled', false).text(actionType === 'nhap' ? 'Nhập' : 'Xuất');
+                    });
+            });
+        });
+    </script>
+}
+

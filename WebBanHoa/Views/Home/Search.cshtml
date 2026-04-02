@@ -1,0 +1,243 @@
+﻿@model List<WebBanHoa.Models.HOA>
+
+@{
+    ViewBag.Title = "Search";
+    string query = ViewBag.SearchQuery as string;
+    int resultCount = (Model != null) ? Model.Count : 0;
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<style>
+    .banner {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+
+    /* Thanh trang chủ */
+    .banner-child {
+        display: flex;
+        justify-content: start;
+        list-style: none;
+        padding: 10px 0px;
+        margin: 0;
+    }
+
+        .banner-child a {
+            text-decoration: none;
+            color: black;
+        }
+            .banner-child a:hover {
+                color: orange;
+            }
+
+        .banner-child span {
+            color: orange;
+        }
+
+    .row {
+        max-width: 1279px;
+        width: 100%;
+    }
+    .product-view {
+        margin-top: 20px;
+    }
+
+        .product-view .row {
+            margin-left: -10px;
+            margin-right: -10px;
+        }
+    .item-product {
+        display: block;
+        height: 100%;
+        padding-bottom: 20px;
+        position: relative;
+    }
+
+        .item-product .product-block {
+            background: #fff;
+            border-radius: 10px;
+            padding: 10px;
+            height: 100%;
+            overflow: hidden;
+            box-shadow: 0px 0px 6px 0px rgba(50, 50, 93, 0.15), 1px 1px 5px rgba(0, 0, 0, 0.05);
+            margin-bottom: 0px;
+        }
+
+            /* Phần bọc ảnh */
+            .item-product .product-block .product-img {
+                width: 100%;
+                aspect-ratio: 1;
+                /*giữ tỉ lệ khung hình 1:1 */
+                position: relative;
+                margin-bottom: 12px;
+            }
+
+                /* Ảnh  */
+                .item-product .product-block .product-img img {
+                    width: auto;
+                    height: 100%;
+                    max-width: 100%;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    object-fit: contain;
+                    transition: transform 0.3s ease;
+                    cursor: pointer;
+                }
+
+                    .item-product .product-block .product-img img:hover {
+                        transform: scale(1.03);
+                    }
+
+    .product-info .product-name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+        .product-info .product-name h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            height: 50px;
+            font-weight: 500;
+        }
+
+    #product-list .col-3 {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .product-price-cart {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .price {
+        color: #ea8725;
+        font-weight: 800;
+        width: 100%;
+        font-size: 18px;
+        line-height: initial;
+        display: block;
+    }
+
+    .item-product .product-block .product-info .product-price-cart .btn-cart {
+        color: #fff;
+        background-color: #4c6a4a;
+    }
+
+    .item-product .product-block .product-info .product-price-cart button {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        border: 0px;
+        padding: 0px;
+    }
+
+    .card-title {
+        cursor: pointer;
+    }
+
+    .item-product .product-block .product-info .product-price-cart button .fa-cart-plus {
+        width: 22px;
+        height: 22px;
+        display: block;
+    }
+
+    .item-product .product-block .product-info .product-price-cart button:hover {
+        background-color: #ea8725;
+    }
+    .item-product .product-block .product-info .product-name .card-title a
+    {
+        text-decoration: none;
+        color: black;
+    }
+    .item-product .product-block .product-info .product-name .card-title a:hover {
+        color: #ea8725;
+    }
+</style>
+
+<div class="layout-products">
+    <!-- Thanh Trang chủ điều hướng -->
+    <section class="banner">
+        <div class="container">
+            <ul class="banner-child">
+                <li class="home"><a href="/Home/Index">Trang chủ > </a></li>
+                <li>
+                    <span>
+                        Tìm Kiếm
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+
+    @if (!string.IsNullOrEmpty(query))
+    {
+        <h3>Tìm kiếm cho từ khóa: <span class="text-success">"@query"</span></h3>
+    }
+
+    @if (Model != null && Model.Any())
+    {
+        <p class="lead">Tìm thấy @resultCount sản phẩm phù hợp.</p>
+        <div class="container">
+            <div class="product-view">
+                <div class="row row-col-1 row-col-sm-2 row-col-md-3 row-col-lg-4" id="product-list">
+                    @foreach (var hoa in Model)
+                    {
+                        <div class="col-3 fade-up">
+                            <div class="item-product">
+                                <form class="product-block">
+                                    <div class="product-img">
+                                        @if (!string.IsNullOrEmpty(hoa.HinhAnh))
+                                        {
+                                            <img src="@hoa.HinhAnh" class="card-img-top" alt="@hoa.TenHoa" />
+                                        }
+                                        else
+                                        {
+                                            <img src="https://bizweb.dktcdn.net/thumb/large/assets/themes_support/noimage.gif">
+                                        }
+
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="product-name">
+                                            <h3 class="card-title"><a href="@Url.Action("DetailHome", "Home", new { id = hoa.MaHoa })"> @hoa.TenHoa</a></h3>
+                                        </div>
+                                        <div class="product-price-cart">
+                                            <div>
+                                                <span class="card-text price">@string.Format("{0:N0}", hoa.Gia) đ</span>
+                                            </div>
+                                            <div>
+                                                <button class="btn-cart" data-image="@hoa.HinhAnh" data-name="@hoa.MoTa" data-price="@hoa.Gia">
+                                                    <i class=" fa-solid fa-cart-plus" style="margin-top: 5px"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+            }
+            else if (!string.IsNullOrEmpty(query))
+            {
+            <div class="alert alert-warning" role="alert">
+                Không tìm thấy sản phẩm nào khớp với từ khóa "**@query**". Vui lòng thử lại.
+            </div>
+            }
+            else
+            {
+            <div class="alert alert-info" role="alert">
+                Vui lòng nhập từ khóa để bắt đầu tìm kiếm.
+            </div>
+            }
+ </div>

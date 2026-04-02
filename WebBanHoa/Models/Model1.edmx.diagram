@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="600f5f53c4d84a09a6e3836944260894" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="EFFirstDatabaseModel.CHITIET_DONHANG" Width="1.5" PointX="8.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFFirstDatabaseModel.DONHANG" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFFirstDatabaseModel.GIOHANG" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFFirstDatabaseModel.HOA" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFFirstDatabaseModel.KHACHHANG" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFFirstDatabaseModel.KHUYENMAI" Width="1.5" PointX="6.875" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFFirstDatabaseModel.LOAIHOA" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFFirstDatabaseModel.NHANVIEN" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
+        <AssociationConnector Association="EFFirstDatabaseModel.FK__CHITIET_D__MaHoa__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="EFFirstDatabaseModel.FK__CHITIET_DO__MaDH__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="EFFirstDatabaseModel.FK__DONHANG__MaKH__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="EFFirstDatabaseModel.FK__GIOHANG__MaKH__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="EFFirstDatabaseModel.FK__HOA__MaLoai__164452B1" ManuallyRouted="false" />
+        <AssociationConnector Association="EFFirstDatabaseModel.DONHANG_KHUYENMAI" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="EFFirstDatabaseModel.TAIKHOAN" Width="1.75" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EFFirstDatabaseModel.CHITIET_GIOHANG" Width="1.5" PointX="6" PointY="1.5" />
+        <AssociationConnector Association="EFFirstDatabaseModel.FK__CHITIET_G__MaHoa__03F0984C" />
+        <AssociationConnector Association="EFFirstDatabaseModel.FK__CHITIET_GI__MaGH__02FC7413" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

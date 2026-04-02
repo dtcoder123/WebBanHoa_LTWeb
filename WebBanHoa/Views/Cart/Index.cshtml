@@ -1,0 +1,54 @@
+﻿@model List<WebBanHoa.ViewModel.Chitietgiohang>
+
+@{
+    ViewBag.Title = "Giỏ hàng";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<style>
+    .btn-delete-cart-item{
+        border-radius: 5px;
+        background-color: red;
+        padding: 5px;
+        border: none;
+    }
+</style>
+
+<h2>GIỎ HÀNG CỦA BẠN</h2>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Ảnh</th>
+                <th>Sản phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Thành tiền</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="width: 100px;">
+                        <img src="@Url.Content(item.HinhAnh)"
+                             alt="@item.TenHoa"
+                             style="width: 100%; height: auto; max-height: 100px; object-fit: cover; border-radius: 4px;" />
+                    </td>
+                    <td>@item.TenHoa</td>
+                    <td>@string.Format("{0:N0}", item.Gia) đ</td>
+                    <td>@item.SoLuong</td>
+                    <td>@string.Format("{0:N0}", item.ThanhTien) đ</td>
+                    <td><button class="btn-delete-cart-item" data-mahoa="@item.MaHoa">Xóa</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Giỏ hàng của bạn đang trống!</p>
+}
+

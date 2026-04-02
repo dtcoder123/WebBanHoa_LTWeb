@@ -1,0 +1,700 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HoaTuoiChoBan.com</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Định nghĩa màu xanh đậm mới */
+        :root {
+            --primary-green: #4c6a4a; /* Màu xanh đậm mới */
+            --light-green: #13a31f; /* Màu xanh lá cũ/sáng hơn cho logo */
+            --hover-green: #006400; /* Màu xanh rất đậm cho hover */
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif;
+        }
+
+        /* class header */
+
+        .header {
+            background-color: #4c6a4a;
+        }
+
+        .header-menu {
+            border-top: 1px solid white;
+            background-color: #4c6a4a;
+        }
+
+        .nav-item a {
+            color: white;
+            font-weight: bold;
+        }
+        .drop-down {
+            position: relative;
+            background-color: #4c6a4a;
+            color: white;
+            cursor: pointer;
+        }
+        .menu-item{
+            position: absolute;
+            top: 100%;
+            left: 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+            background-color: white;
+            color: black;
+            border: 1px solid #ddd;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            min-width: 180px;
+            z-index: 100;
+            padding: 0;
+        }
+        .menu-item li{
+            padding: 10px 15px;
+            color: black;
+            white-space: nowrap;
+            list-style: none;
+        }
+        .menu-item li a{
+            color: black;
+            font-weight: normal;
+            text-decoration: none;
+        }
+        .menu-item li:hover{
+            background-color: #f0f0f0;
+        }
+        .drop-down:hover .menu-item
+        {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .main-header {
+            padding: 10px 0;
+        }
+
+        .container {
+            padding-left: 15px;
+            padding-right: 15px;
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .text-white {
+            font-size: xx-large;
+            font-weight: bold;
+            text-shadow: 2px 5px 4px black;
+        }
+
+        .Search_Box {
+            display: flex;
+            margin: 10px 0;
+        }
+
+            .Search_Box input {
+                border: solid 1px white;
+                width: 100%;
+                border-radius: 2px;
+                padding: 10px;
+                height: 41px;
+            }
+
+        .intro:hover {
+            transform: scale(105%);
+        }
+
+        .fa-solid.fa-magnifying-glass {
+            width: 40px;
+            background-color: white;
+            padding: 10px;
+            line-height: 26px;
+            cursor: pointer;
+        }
+
+        .header-right {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-right-item {
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .text-box {
+            color: #fff;
+            margin-left: 8px;
+            flex-grow: 1;
+            line-height: 16px;
+            position: relative;
+            font-size: small;
+        }
+
+        .info p {
+            margin-bottom: 0px;
+            font-size: small;
+            margin-left: 10px;
+            margin-top: 3px;
+            color: white;
+            font-weight: bold;
+        }
+        .right-item-1-menu li {
+            position: relative;
+        }
+
+        .item-1-submenu {
+            position: absolute;
+            top: 100%;
+            left: 0; /* QUAN TRỌNG: menu nằm thẳng xuống */
+            right: auto;
+            background-color: rgba(76, 106, 74, 0.9);
+            display: none;
+            padding: 10px;
+            min-width: 180px;
+            border-radius: 5px;
+            z-index: 999;
+        }
+
+        .right-item-1-menu li:hover .item-1-submenu {
+            display: block;
+        }
+
+        .item-1-submenu a {
+            color: white;
+            font-weight: normal;
+            padding: 6px 10px;
+            display: block;
+        }
+            .item-1-submenu a:hover {
+                background: rgba(255,255,255,0.1);
+            }
+        .info2 ul,
+        .cart-dropdown ul {
+            list-style: none;
+            padding: 5px;
+            margin: 0;
+        }
+
+        .info2 a,
+        .cart-dropdown a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .item-1-submenu,
+        .cart-dropdown {
+            position: absolute;
+            display: none;
+            background-color: #4c6a4a6b;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 100;
+            right: 0;
+            min-width: 200px;
+            top: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .right-item-1-menu {
+            margin-top: 12px;
+            margin-left: -10px;
+            position: relative;
+        }
+
+            .right-item-1-menu li:hover .item-1-submenu,
+            .header-right-item:hover .cart-dropdown {
+                display: block;
+            }
+
+        .cart-icon-btn {
+            position: relative;
+            background-color: var(--primary-green); /* Giữ màu xanh sáng cho icon giỏ hàng */
+            color: white;
+            padding: 10px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            height: 45px;
+            width: 45px;
+            transition: background-color 0.2s;
+            font-size: 1.25rem;
+        }
+
+            .cart-icon-btn:hover {
+                background-color: var(--hover-green); /* Dùng màu xanh rất đậm cho hover */
+            }
+
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            padding: 3px 7px;
+            border-radius: 50%;
+            background-color: #ff5722;
+            color: white;
+            font-size: 0.85rem;
+            font-weight: bold;
+            line-height: 1;
+            box-shadow: 0 0 0 2px white;
+        }
+
+        .cart-container {
+            position: relative;
+        }
+
+        .item-container {
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background: white;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            width: 400px;
+            z-index: 1000;
+            border-radius: 8px;
+        }
+
+            .item-container h4 {
+                border-bottom: 1px solid #ccc;
+                padding: 5px;
+            }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            align-items: center;
+        }
+
+            .cart-item .name {
+                display: flex;
+                align-items: center;
+            }
+
+            .cart-item img {
+                width: 50px;
+                height: 50px;
+                object-fit: cover;
+                margin-right: 10px;
+            }
+
+        .remove-btn {
+            background: red;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            height: 30px;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .total-price {
+            padding: 5px;
+            margin-bottom: 5px;
+        }
+
+        /* Phần thân  */
+        .banner {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .row {
+            max-width: 1279px;
+            width: 100%;
+        }
+        .menu{
+            padding: 1px;
+        }
+        .nav-link{
+            position: relative;
+            display: inline-block;
+        }
+            .nav-link::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left:50%;
+                background-color: white;
+                height: 3px;
+                width: 50%;
+                transform: translate(-50%) scaleX(0);
+                transition: transform 0.3s ease-out;
+            }
+            .nav-link:hover {
+                color: white;
+            }
+            .nav-link:hover::after {
+                transform: translate(-50%) scaleX(1);
+            }
+
+        footer {
+            background-color: #4c6a4a;
+            color: #ffffff;
+            padding: 50px 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+            footer .container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            footer .row {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 30px; /* khoảng cách đều giữa các cột */
+            }
+
+            footer .col-md-3 {
+                flex: 1;
+                min-width: 220px; /* đảm bảo không quá nhỏ khi co */
+            }
+
+            footer h5 {
+                font-size: 16px;
+                font-weight: 600;
+                text-transform: uppercase;
+                margin-bottom: 16px;
+                color: #e2ffe2;
+            }
+
+            footer p,
+            footer li,
+            footer a {
+                font-size: 14px;
+                color: #f1f1f1;
+                text-decoration: none;
+                line-height: 1.8;
+                margin-bottom: 8px;
+            }
+
+                footer a:hover {
+                    color: #d0ffc7;
+                    text-decoration: underline;
+                }
+
+            footer ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            footer .logo {
+                font-size: 20px;
+                font-weight: bold;
+                color: #ffffff;
+                margin-bottom: 12px;
+            }
+
+        /* Responsive cho màn hình nhỏ */
+        @@media (max-width: 768px) {
+            footer .row {
+                flex-direction: column;
+                gap: 40px;
+                text-align: center;
+            }
+        }
+
+
+        footer .fanpage img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Responsive layout */
+        @@media (max-width: 768px) {
+            footer {
+                text-align: center;
+            }
+
+                footer .col-md-3 {
+                    margin-bottom: 30px;
+                }
+        }
+
+
+        /* Responsive chỉnh đẹp thêm */
+        @@media (max-width: 768px) {
+            footer {
+                text-align: center;
+            }
+
+                footer .col-md-3 {
+                    margin-bottom: 30px;
+                }
+        }
+
+
+        /* Responsive styles */
+        @@media (max-width: 992px) {
+            .header-logo, .header-mid, .header-right {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .text-white {
+                font-size: x-large;
+            }
+
+            .Search_Box {
+                justify-content: center;
+            }
+
+            .header-right {
+                margin-top: 15px;
+            }
+        }
+
+        @@media (max-width: 768px) {
+            .text-white {
+                font-size: large;
+            }
+
+            .info p, .info2 a {
+                font-size: x-small;
+            }
+
+            .header-right-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .info p {
+                margin-left: 0;
+            }
+        }
+
+        @@media (max-width: 576px) {
+            .text-white {
+                font-size: medium;
+            }
+
+            .container {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .header-right {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="main-header">
+            <div class="container">
+                <div class="box-header">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-lg-3 col-md-12 header-logo">
+                            <div class="text-white">
+                                Tiệm Hoa Xinh
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-12 col-lg-4 header-mid">
+                            <form action="/Home/Search" method="get" class="Search_Box">
+                                <input id="searchInput" name="query" type="search" placeholder="Nhập tìm sản phẩm">
+
+                                <button type="submit" style="border: none; background: white; padding: 0; cursor: pointer;">
+                                    <i class="fa-solid fa-magnifying-glass"
+                                       style="color: black; background-color: white; width: 40px; padding: 9px; height: 41px; line-height: 23px; display: block;"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="col-12 col-lg-5 col-md-12 header-right">
+                            <div class="header-right-item">
+                                <div>
+                                    <i style="background-color: #4c6a4a; color: white; font-size: x-large;"
+                                       class="fa-solid fa-phone-volume">
+                                    </i>
+                                </div>
+                                <div class="info">
+                                    <p>Gọi mua sản phẩm</p>
+                                    <p>0384123123</p>
+                                </div>
+                            </div>
+
+                            <div class="header-right-item">
+                                <div>
+                                    <i style="background-color: #4c6a4a; color: white; font-size: x-large;"
+                                       class="fa-solid fa-user"></i>
+                                </div>
+                                <div class="info2">
+                                    <ul class="right-item-1-menu">
+                                        <li>
+                                            <a style="font-size: small;" href="#">Tài Khoản</a>
+                                            <ul class="item-1-submenu">
+                                                @using WebBanHoa.App_Start
+                                                @if (Session.IsLoggedIn())
+                                                {
+                                                    <li>
+                                                        <a href="/Account/Register">Đăng Xuất</a>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li>
+                                                        <a href="/Account/Login">Đăng nhập</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Account/Register">Đăng ký</a>
+                                                    </li>
+                                                }
+
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cart-container">
+                                <a href="/Cart/Index" class="cart-icon-btn" title="Giỏ hàng">
+                                    <i class="bi bi-bag-fill"></i>
+                                    <span class="cart-badge" id="cart-count">0</span>
+                                </a>
+                                <div class="item-container d-none" id="item-container">
+                                    <h4>Gio hang</h4>
+                                    <div id="empty-cart" class="d-none p-2">Không có sản phẩm nào ở đây</div>
+                                    <div id="cart-items" class="d-none"></div>
+                                    <div class="total-price" id="total-price">Tong tien: </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="header-menu">
+        <div class="container">
+            <div class="menu">
+                <ul id="nav" class="nav d-flex justify-content-between">
+                    <li class="nav-item">
+                        <a href="/Home/Index" target="_self" class="nav-link">Trang chủ</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/AllSanPham/Index" target="_self" class="nav-link">
+                            Tất cả sản phẩm
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/BoHoaTuoi/Index" target="_self" class="nav-link">
+                            Bó Hoa Tươi
+                        </a>
+                    </li>
+                    <li class="nav-item drop-down">
+                        <a href="/KeHoaChucMung/Index" class="nav-link" target="_self">Kệ Hoa Chúc Mừng</a>
+                        <ul class="menu-item">
+                            <li style="border-bottom: 1px solid gray"><a href="/KeHoaChucMung/Index">Kệ Hoa Chúc Mừng</a></li>
+                            <li><a href="/GioHoa/Index">Giỏ Hoa Chúc Mừng</a></li>
+                        </ul>
+
+                    </li>
+                    <li class="nav-item">
+                        <a href="/HoaCuoi/Index" target="_self" class="nav-link">
+                            Hoa
+                            cưới
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/HoaSap/Index" target="_self" class="nav-link">
+                            Hoa
+                            sáp
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Home/LienHe" target="_self" class="nav-link">
+                            Liên
+                            hệ
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- phần thân -->
+    <div class="body-wrap">
+        @RenderBody()
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <!-- Cột 1: Thông tin -->
+                <div class="col-md-3">
+                    <div class="logo mb-2">🌸 TIỆM HOA XINH</div>
+                    <p><strong>Địa chỉ:</strong> 142 Lê Trọng Tấn, Quận Tân Phú (Online)</p>
+                    <p><strong>Điện thoại:</strong> 08627713456</p>
+                    <p><strong>Email:</strong> Hoaxinhquangot@gmail.com</p>
+                </div>
+
+                <!-- Cột 2: Menu -->
+                <div class="col-md-3">
+                    <h5>Menu</h5>
+                    <ul>
+                        <li><a href="/Home/Index" target="_self">Trang chủ</a></li>
+                        <li><a href="/AllSanPham/Index" target="_self">Tất cả sản phẩm</a></li>
+                        <li><a href="/BoHoaTuoi/Index" target="_self">Bó Hoa Tươi</a></li>
+                        <li><a href="/KeHoaChucMung/Index" target="_self">Kệ Hoa chúc mừng</a></li>
+                        <li><a href="/GioHoa/Index" target="_self">Giỏ Hoa chúc mừng</a></li>
+                        <li><a href="/HoaCuoi/Index" target="_self">Hoa Cưới</a></li>
+                        <li><a href="/HoaSap/Index" target="_self">Hoa Sáp</a></li>
+                        <li><a href="/Home/LienHe" target="_self">Liên Hệ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Cột 3: Chính sách -->
+                <div class="col-md-3">
+                    <h5>Chính Sách</h5>
+                    <ul>
+                        <li><a href="#">Hình Thức Thanh Toán</a></li>
+                        <li><a href="#">Chính sách giao hàng</a></li>
+                        <li><a href="#">Chính sách bảo mật thông tin</a></li>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script>
+    // Khai báo biến Global để lưu URL hợp lệ
+        var ThemGioHangUrl = '@Url.Action("ThemGioHang", "Cart")';
+         var XoaGioHangUrl = '@Url.Action("Delete", "Cart")';
+    </script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/giohang.js"></script>
+</body>
+</html>

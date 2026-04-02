@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Quản Trị Website Bán Hoa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --sidebar-width: 250px;
+            --header-height: 50px;
+        }
+
+        body {
+            background-color: #f8f9fa; /* Màu nền nhẹ */
+        }
+
+        /* ------------------- Header (Thanh trên cùng) ------------------- */
+        .app-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: #0d6efd; /* Màu xanh dương */
+            color: white;
+            z-index: 1030;
+            padding: 0 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* ------------------- Sidebar (Thanh điều hướng dọc) ------------------- */
+        .app-sidebar {
+            position: fixed;
+            top: var(--header-height); /* Bắt đầu sau header */
+            left: 0;
+            bottom: 0;
+            width: var(--sidebar-width);
+            background-color: #212529; /* Màu đen/xám đậm */
+            color: #adb5bd;
+            padding-top: 1rem;
+            z-index: 1020;
+            overflow-y: auto;
+        }
+
+        .sidebar-menu .nav-link {
+            color: #adb5bd;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+        }
+
+            .sidebar-menu .nav-link:hover,
+            .sidebar-menu .nav-link.active {
+                background-color: #0d6efd; /* Màu xanh khi hover/active */
+                color: white;
+            }
+
+            .sidebar-menu .nav-link i {
+                margin-right: 10px;
+                width: 20px; /* Đảm bảo icon có khoảng trống cố định */
+            }
+
+        .sidebar-title {
+            color: #ced4da;
+            padding: 10px 15px 5px 15px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        /* ------------------- Main Content (Nội dung chính) ------------------- */
+        .app-content {
+            margin-left: var(--sidebar-width); /* Tạo khoảng trống bằng chiều rộng sidebar */
+            padding-top: var(--header-height); /* Tạo khoảng trống bằng chiều cao header */
+            padding: calc(var(--header-height) + 15px) 15px 15px calc(var(--sidebar-width) + 15px);
+        }
+        .out{
+            padding: 5px;
+            background-color: white;
+            margin-left: 10px;
+            border-radius: 5px;
+        }
+        .out a{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="h5 mb-0">🛠️ Quản Trị Website Bán Hoa</div>
+        <div class="d-flex justify-content-center align-items-center">
+            <a href="#" class="text-white text-decoration-none">Xin chào, Admin</a>
+            <div class="out">
+                <a href="/Home/Index">Đăng xuất</a>
+            </div>
+
+        </div>
+    </header>
+
+    <aside class="app-sidebar">
+        <nav class="sidebar-menu">
+
+            <a class="nav-link active" href="/Admin/TrangChu">
+                <i class="bi bi-house-door-fill"></i> Trang Chủ
+            </a>
+
+            <div class="sidebar-title mt-3">Quản Lý Sản Phẩm</div>
+            <a class="nav-link" href="/Admin/QuanLySanPham">
+                <i class="bi bi-box-seam"></i> Quản Lý Sản Phẩm (Thêm/Sửa/Xóa)
+            </a>
+            <div class="sidebar-title mt-3">Quản Lý Đơn Hàng & Kho</div>
+            <a class="nav-link" href="/Admin/QLDH">
+                <i class="bi bi-cart-check"></i> Quản Lý Đơn Hàng
+            </a>
+            <a class="nav-link" href="/Admin/QLKho">
+                <i class="bi bi-warehouse"></i> Quản Lý Kho (Tồn kho, Nhập/Xuất)
+            </a>
+
+            <div class="sidebar-title mt-3">Quản Lý Website</div>
+            <a class="nav-link" href="/Admin/QLKH">
+                <i class="bi bi-people"></i> Quản Lý Khách Hàng
+            </a>
+
+        </nav>
+    </aside>
+
+    <main class="app-content">
+        @RenderBody()
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

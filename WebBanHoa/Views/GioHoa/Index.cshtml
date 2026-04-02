@@ -1,0 +1,435 @@
+﻿@model List<WebBanHoa.Models.HOA>
+
+@{
+    ViewBag.Title = "Gio Hoa Chuc Mung";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<style>
+    .banner {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+
+    /* Thanh trang chủ */
+    .banner-child {
+        display: flex;
+        justify-content: start;
+        list-style: none;
+        padding: 10px 0px;
+        margin: 0;
+    }
+
+        .banner-child a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .banner-child span {
+            color: orange;
+        }
+
+    .row {
+        max-width: 1279px;
+        width: 100%;
+    }
+
+    /* Tiêu đề Hoa cưới */
+    .title h1 {
+        text-align: center;
+        font-size: 30px;
+        margin: 0;
+        height: 40px;
+    }
+
+    .title {
+        margin-bottom: 10px;
+    }
+
+    /* Phần sản phẩm  */
+    .products-collection {
+        margin: 0px 0px 40px 0px;
+        padding: 0px 10px !important;
+    }
+
+    .block {
+        width: 100%;
+        margin-top: 20px;
+        box-sizing: border-box;
+    }
+
+    /* Thanh sắp xếp */
+    .sort {
+        max-width: 1230px;
+        padding: 8px 14px;
+        background-color: #f1f1f1;
+        border-radius: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* nút filter  */
+    .filter {
+        width: fit-content;
+        position: relative;
+    }
+
+    .btn-filter {
+        background-color: #f1f1f1;
+        border: 1px solid rgba(128, 128, 128, 0.336);
+        border-radius: 5px;
+        padding: 5px 10px;
+    }
+
+        .btn-filter:hover {
+            background-color: #4c6a4a;
+            color: white;
+        }
+
+    .fa-filter {
+        margin-right: 5px;
+        width: 18px;
+        height: 18px;
+    }
+
+    .count-filter {
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        background-color: orange;
+        color: white;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        font-size: 12px;
+        font-weight: bold;
+        display: inline-block;
+        line-height: 16px;
+        text-align: center;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    /* các nút sắp xếp */
+    .sort-right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .fa-arrow-down-a-z {
+        width: 22px;
+        height: 22px;
+    }
+
+        .fa-arrow-down-a-z:not(:root) {
+            overflow: hidden;
+        }
+
+    .sort-right h3 {
+        font-size: 14px;
+        float: left;
+        margin: 0px;
+        margin-right: 5px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+    }
+
+    .sort-right ul {
+        list-style: none;
+        margin-bottom: 0;
+        padding-left: 0;
+    }
+
+    .sort-right li {
+        float: left;
+        padding: 0 0 0 10px;
+    }
+
+    .sort-right ul li a {
+        display: block;
+        padding: 4px 10px;
+        font-size: 14px;
+        border-radius: 8px;
+        font-weight: 500;
+        text-align: right;
+        border: #ccc solid 1px;
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .sort-right ul li {
+        border: none;
+    }
+
+    .sort-right .active {
+        background-color: #537453;
+        border-color: #4c6a4a;
+        color: white;
+    }
+
+    .sort-right li a:hover {
+        background-color: #537453;
+        border-color: #4c6a4a;
+        color: white;
+    }
+
+    /* Hiện sản phẩm */
+    /*    .fade-up {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1.2s ease-out, transform 0.8s ease-out;
+    }
+
+        .fade-up::after {
+            opacity: 1;
+            transform: translateY(0);
+        }*/
+
+    .products-collection {
+        margin-bottom: 40px;
+    }
+
+    .product-view {
+        margin-top: 20px;
+    }
+
+        .product-view .row {
+            margin-left: -10px;
+            margin-right: -10px;
+        }
+
+    .item-product {
+        display: block;
+        height: 100%;
+        padding-bottom: 20px;
+        position: relative;
+    }
+
+        .item-product .product-block {
+            background: #fff;
+            border-radius: 10px;
+            padding: 10px;
+            height: 100%;
+            overflow: hidden;
+            box-shadow: 0px 0px 6px 0px rgba(50, 50, 93, 0.15), 1px 1px 5px rgba(0, 0, 0, 0.05);
+            margin-bottom: 0px;
+        }
+
+            /* Phần bọc ảnh */
+            .item-product .product-block .product-img {
+                width: 100%;
+                aspect-ratio: 1;
+                /*giữ tỉ lệ khung hình 1:1 */
+                position: relative;
+                margin-bottom: 12px;
+            }
+
+                /* Ảnh  */
+                .item-product .product-block .product-img img {
+                    width: auto;
+                    height: 100%;
+                    max-width: 100%;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    object-fit: contain;
+                    transition: transform 0.3s ease;
+                    cursor: pointer;
+                }
+
+                    .item-product .product-block .product-img img:hover {
+                        transform: scale(1.03);
+                    }
+
+    .product-info .product-name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+        .product-info .product-name h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            height: 50px;
+            font-weight: 500;
+        }
+
+    #product-list .col-3 {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .product-price-cart {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .price {
+        color: #ea8725;
+        font-weight: 800;
+        width: 100%;
+        font-size: 18px;
+        line-height: initial;
+        display: block;
+    }
+
+    .item-product .product-block .product-info .product-price-cart .btn-cart {
+        color: #fff;
+        background-color: #4c6a4a;
+    }
+
+    .item-product .product-block .product-info .product-price-cart button {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        border: 0px;
+        padding: 0px;
+    }
+
+    .card-title {
+        cursor: pointer;
+    }
+
+    .item-product .product-block .product-info .product-price-cart button .fa-cart-plus {
+        width: 22px;
+        height: 22px;
+        display: block;
+    }
+
+    .item-product .product-block .product-info .product-price-cart button:hover {
+        background-color: #ea8725;
+    }
+
+    .item-product .product-block .product-info .product-name .card-title a {
+        text-decoration: none;
+        color: black;
+    }
+
+        .item-product .product-block .product-info .product-name .card-title a:hover {
+            color: #ea8725;
+        }
+</style>
+@{
+    string asc = "fa-sort-asc";
+    string desc = "fa-sort-desc";
+    string sortParam = Request.QueryString["sort"];
+    string defaultClass = string.IsNullOrEmpty(sortParam) ? "active" : "";
+
+}
+
+<div class="layout-products">
+    <!-- Thanh Trang chủ điều hướng -->
+    <section class="banner">
+        <div class="container">
+            <ul class="banner-child">
+                <li class="home"><a href="#">Trang Chủ > </a></li>
+                <li>
+                    <span>
+                        Giỏ Hoa Chúc Mừng
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 title">
+                <h1>
+                    Giỏ Hoa Chúc Mừng
+                </h1>
+            </div>
+            <!-- Phần chứa sản phẩm -->
+            <div class="products-collection col-lg-12 col-12">
+                <div class="block">
+                    <div class="sort">
+                        <div class="filter">
+                            <a class="btn btn-outline btn-filter">
+                                <i class="fa-solid fa-filter"></i>Bộ lọc
+                            </a>
+                        </div>
+                        <div class="sort-right">
+                            <h3>
+                                <i class="fa-solid fa-arrow-down-a-z"> </i>
+                                Xếp theo
+                            </h3>
+                            <ul>
+                                <li class="btn default ">
+                                    <a class="sort-btn @defaultClass" href="/GioHoa/Index?sort">Mặc định</a>
+                                </li>
+                                <li class="sort-asc btn">
+                                    <a class="sort-btn @(sortParam == "TenHoa" && Request.QueryString["IconClass"] == asc ? "active" : "")" href="/GioHoa/Index?sort=TenHoa&IconClass=@asc">Tên A-Z</a>
+                                </li>
+                                <li class="sort-desc btn ">
+                                    <a class="sort-btn @(sortParam == "TenHoa" && Request.QueryString["IconClass"] == desc ? "active" : "")" href="/GioHoa/Index?sort=TenHoa&IconClass=@desc">Tên Z-A</a>
+                                </li>
+                                <li class="price-asc btn ">
+                                    <a class="sort-btn @(sortParam == "Gia" && Request.QueryString["IconClass"] == asc ? "active" : "")" href="/GioHoa/Index?sort=Gia&IconClass=@asc">
+                                        Giá thấp
+                                        đến cao
+                                    </a>
+                                </li>
+                                <li class="price-desc btn">
+                                    <a class="sort-btn @(sortParam == "Gia" && Request.QueryString["IconClass"] == desc ? "active" : "")" href="/GioHoa/Index?sort=Gia&IconClass=@desc">
+                                        Giá cao
+                                        xuống thấp
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="product-view">
+                        <div class="row row-col-1 row-col-sm-2 row-col-md-3 row-col-lg-4" id="product-list">
+                            @foreach (var hoa in Model)
+                            {
+                                <div class="col-3 fade-up">
+                                    <div class="item-product">
+                                        <form class="product-block">
+                                            <div class="product-img">
+                                                @if (!string.IsNullOrEmpty(hoa.HinhAnh))
+                                                {
+                                                    <img src="@Url.Content(hoa.HinhAnh)" class="card-img-top" alt="@hoa.TenHoa" />
+                                                }
+                                                else
+                                                {
+                                                    <img src="https://bizweb.dktcdn.net/thumb/large/assets/themes_support/noimage.gif">
+                                                }
+
+                                            </div>
+                                            <div class="product-info">
+                                                <div class="product-name">
+                                                    <h3 class="card-title"><a href="@Url.Action("DetailHome", "Home", new { id = hoa.MaHoa })"> @hoa.TenHoa</a></h3>
+                                                </div>
+                                                <div class="product-price-cart">
+                                                    <div>
+                                                        <span class="card-text price">@string.Format("{0:N0}", hoa.Gia) đ</span>
+                                                    </div>
+                                                    <div>
+                                                        <button class="btn-cart" data-image="@hoa.HinhAnh" data-name="@hoa.MoTa" data-price="@hoa.Gia">
+                                                            <i class=" fa-solid fa-cart-plus" style="margin-top: 5px"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EFFirstDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CHITIET_DONHANG">
+    <Key>
+      <PropertyRef Name="MaDH" />
+      <PropertyRef Name="MaHoa" />
+    </Key>
+    <Property Name="MaDH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaHoa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="DonGia" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="HOA" Relationship="Self.FK__CHITIET_D__MaHoa__29572725" FromRole="CHITIET_DONHANG" ToRole="HOA" />
+    <NavigationProperty Name="DONHANG" Relationship="Self.FK__CHITIET_DO__MaDH__286302EC" FromRole="CHITIET_DONHANG" ToRole="DONHANG" />
+  </EntityType>
+  <EntityType Name="DONHANG">
+    <Key>
+      <PropertyRef Name="MaDH" />
+    </Key>
+    <Property Name="MaDH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NgayDat" Type="DateTime" Precision="3" />
+    <Property Name="TongTien" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DiaChiGiao" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CHITIET_DONHANG" Relationship="Self.FK__CHITIET_DO__MaDH__286302EC" FromRole="DONHANG" ToRole="CHITIET_DONHANG" />
+    <NavigationProperty Name="KHACHHANG" Relationship="Self.FK__DONHANG__MaKH__239E4DCF" FromRole="DONHANG" ToRole="KHACHHANG" />
+    <NavigationProperty Name="KHUYENMAIs" Relationship="Self.DONHANG_KHUYENMAI" FromRole="DONHANG" ToRole="KHUYENMAI" />
+  </EntityType>
+  <EntityType Name="GIOHANG">
+    <Key>
+      <PropertyRef Name="MaGH" />
+    </Key>
+    <Property Name="MaGH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NgayTao" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="KHACHHANG" Relationship="Self.FK__GIOHANG__MaKH__1B0907CE" FromRole="GIOHANG" ToRole="KHACHHANG" />
+    <NavigationProperty Name="CHITIET_GIOHANG" Relationship="EFFirstDatabaseModel.FK__CHITIET_GI__MaGH__02FC7413" FromRole="GIOHANG" ToRole="CHITIET_GIOHANG" />
+  </EntityType>
+  <EntityType Name="HOA">
+    <Key>
+      <PropertyRef Name="MaHoa" />
+    </Key>
+    <Property Name="MaHoa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenHoa" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaLoai" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Gia" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="SoLuongTon" Type="Int32" />
+    <Property Name="MoTa" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="HinhAnh" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CHITIET_DONHANG" Relationship="Self.FK__CHITIET_D__MaHoa__29572725" FromRole="HOA" ToRole="CHITIET_DONHANG" />
+    <NavigationProperty Name="LOAIHOA" Relationship="Self.FK__HOA__MaLoai__164452B1" FromRole="HOA" ToRole="LOAIHOA" />
+    <NavigationProperty Name="CHITIET_GIOHANG" Relationship="EFFirstDatabaseModel.FK__CHITIET_G__MaHoa__03F0984C" FromRole="HOA" ToRole="CHITIET_GIOHANG" />
+  </EntityType>
+  <EntityType Name="KHACHHANG">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SoDienThoai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NgayDangKy" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="DONHANGs" Relationship="Self.FK__DONHANG__MaKH__239E4DCF" FromRole="KHACHHANG" ToRole="DONHANG" />
+    <NavigationProperty Name="GIOHANGs" Relationship="Self.FK__GIOHANG__MaKH__1B0907CE" FromRole="KHACHHANG" ToRole="GIOHANG" />
+  </EntityType>
+  <EntityType Name="KHUYENMAI">
+    <Key>
+      <PropertyRef Name="MaKM" />
+    </Key>
+    <Property Name="MaKM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenKM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PhanTramGiam" Type="Int32" />
+    <Property Name="NgayBatDau" Type="DateTime" Precision="0" />
+    <Property Name="NgayKetThuc" Type="DateTime" Precision="0" />
+    <Property Name="DieuKien" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DONHANGs" Relationship="Self.DONHANG_KHUYENMAI" FromRole="KHUYENMAI" ToRole="DONHANG" />
+  </EntityType>
+  <EntityType Name="LOAIHOA">
+    <Key>
+      <PropertyRef Name="MaLoai" />
+    </Key>
+    <Property Name="MaLoai" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenLoai" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MoTa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HOAs" Relationship="Self.FK__HOA__MaLoai__164452B1" FromRole="LOAIHOA" ToRole="HOA" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Luong" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="NgayVaoLam" Type="DateTime" Precision="0" />
+  </EntityType>
+  <Association Name="FK__CHITIET_D__MaHoa__29572725">
+    <End Role="HOA" Type="Self.HOA" Multiplicity="1" />
+    <End Role="CHITIET_DONHANG" Type="Self.CHITIET_DONHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOA">
+        <PropertyRef Name="MaHoa" />
+      </Principal>
+      <Dependent Role="CHITIET_DONHANG">
+        <PropertyRef Name="MaHoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIET_DO__MaDH__286302EC">
+    <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="1" />
+    <End Role="CHITIET_DONHANG" Type="Self.CHITIET_DONHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONHANG">
+        <PropertyRef Name="MaDH" />
+      </Principal>
+      <Dependent Role="CHITIET_DONHANG">
+        <PropertyRef Name="MaDH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DONHANG__MaKH__239E4DCF">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+    <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="DONHANG">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GIOHANG__MaKH__1B0907CE">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
+    <End Role="GIOHANG" Type="Self.GIOHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="GIOHANG">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HOA__MaLoai__164452B1">
+    <End Role="LOAIHOA" Type="Self.LOAIHOA" Multiplicity="0..1" />
+    <End Role="HOA" Type="Self.HOA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIHOA">
+        <PropertyRef Name="MaLoai" />
+      </Principal>
+      <Dependent Role="HOA">
+        <PropertyRef Name="MaLoai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DONHANG_KHUYENMAI">
+    <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="*" />
+    <End Role="KHUYENMAI" Type="Self.KHUYENMAI" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="EFFirstDatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CHITIET_DONHANG" EntityType="Self.CHITIET_DONHANG" />
+    <EntitySet Name="DONHANGs" EntityType="Self.DONHANG" />
+    <EntitySet Name="GIOHANGs" EntityType="Self.GIOHANG" />
+    <EntitySet Name="HOAs" EntityType="Self.HOA" />
+    <EntitySet Name="KHACHHANGs" EntityType="Self.KHACHHANG" />
+    <EntitySet Name="KHUYENMAIs" EntityType="Self.KHUYENMAI" />
+    <EntitySet Name="LOAIHOAs" EntityType="Self.LOAIHOA" />
+    <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
+    <AssociationSet Name="FK__CHITIET_D__MaHoa__29572725" Association="Self.FK__CHITIET_D__MaHoa__29572725">
+      <End Role="HOA" EntitySet="HOAs" />
+      <End Role="CHITIET_DONHANG" EntitySet="CHITIET_DONHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIET_DO__MaDH__286302EC" Association="Self.FK__CHITIET_DO__MaDH__286302EC">
+      <End Role="DONHANG" EntitySet="DONHANGs" />
+      <End Role="CHITIET_DONHANG" EntitySet="CHITIET_DONHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DONHANG__MaKH__239E4DCF" Association="Self.FK__DONHANG__MaKH__239E4DCF">
+      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+      <End Role="DONHANG" EntitySet="DONHANGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GIOHANG__MaKH__1B0907CE" Association="Self.FK__GIOHANG__MaKH__1B0907CE">
+      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+      <End Role="GIOHANG" EntitySet="GIOHANGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HOA__MaLoai__164452B1" Association="Self.FK__HOA__MaLoai__164452B1">
+      <End Role="LOAIHOA" EntitySet="LOAIHOAs" />
+      <End Role="HOA" EntitySet="HOAs" />
+    </AssociationSet>
+    <AssociationSet Name="DONHANG_KHUYENMAI" Association="Self.DONHANG_KHUYENMAI">
+      <End Role="DONHANG" EntitySet="DONHANGs" />
+      <End Role="KHUYENMAI" EntitySet="KHUYENMAIs" />
+    </AssociationSet>
+    <EntitySet Name="TAIKHOANs" EntityType="EFFirstDatabaseModel.TAIKHOAN" />
+    <EntitySet Name="CHITIET_GIOHANG" EntityType="EFFirstDatabaseModel.CHITIET_GIOHANG" />
+    <AssociationSet Name="FK__CHITIET_G__MaHoa__03F0984C" Association="EFFirstDatabaseModel.FK__CHITIET_G__MaHoa__03F0984C">
+      <End Role="HOA" EntitySet="HOAs" />
+      <End Role="CHITIET_GIOHANG" EntitySet="CHITIET_GIOHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIET_GI__MaGH__02FC7413" Association="EFFirstDatabaseModel.FK__CHITIET_GI__MaGH__02FC7413">
+      <End Role="GIOHANG" EntitySet="GIOHANGs" />
+      <End Role="CHITIET_GIOHANG" EntitySet="CHITIET_GIOHANG" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="TAIKHOAN">
+    <Key>
+      <PropertyRef Name="TenDangNhap" />
+    </Key>
+    <Property Name="Matkhau" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="quyen" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TenDangNhap" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CHITIET_GIOHANG">
+    <Key>
+      <PropertyRef Name="MaGH" />
+      <PropertyRef Name="MaHoa" />
+    </Key>
+    <Property Name="MaGH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+    <Property Name="MaHoa" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="SoLuong" Type="Int32" />
+    <NavigationProperty Name="HOA" Relationship="EFFirstDatabaseModel.FK__CHITIET_G__MaHoa__03F0984C" FromRole="CHITIET_GIOHANG" ToRole="HOA" />
+    <NavigationProperty Name="GIOHANG" Relationship="EFFirstDatabaseModel.FK__CHITIET_GI__MaGH__02FC7413" FromRole="CHITIET_GIOHANG" ToRole="GIOHANG" />
+  </EntityType>
+  <Association Name="FK__CHITIET_G__MaHoa__03F0984C">
+    <End Type="EFFirstDatabaseModel.HOA" Role="HOA" Multiplicity="1" />
+    <End Type="EFFirstDatabaseModel.CHITIET_GIOHANG" Role="CHITIET_GIOHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOA">
+        <PropertyRef Name="MaHoa" />
+      </Principal>
+      <Dependent Role="CHITIET_GIOHANG">
+        <PropertyRef Name="MaHoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIET_GI__MaGH__02FC7413">
+    <End Type="EFFirstDatabaseModel.GIOHANG" Role="GIOHANG" Multiplicity="1" />
+    <End Type="EFFirstDatabaseModel.CHITIET_GIOHANG" Role="CHITIET_GIOHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GIOHANG">
+        <PropertyRef Name="MaGH" />
+      </Principal>
+      <Dependent Role="CHITIET_GIOHANG">
+        <PropertyRef Name="MaGH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

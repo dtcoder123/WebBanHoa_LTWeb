@@ -1,0 +1,72 @@
+﻿@model WebBanHoa.Models.HOA
+@{
+    ViewBag.Title = "Thêm Sản Phẩm Mới";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2 class="mb-4">✨ @ViewBag.Title</h2>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+
+        @using (Html.BeginForm("ThemSanPham", "Admin", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <h5 class="card-title text-primary mb-3">Thông tin chi tiết</h5>
+            @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+            <div class="mb-3">
+                @Html.LabelFor(model => model.MaHoa, "Mã Hoa", new { @class = "form-label" })
+                @Html.TextBoxFor(model => model.MaHoa, new { @class = "form-control" })
+                <small class="text-muted">Nếu để trống, hệ thống sẽ tự động tạo mã.</small>
+                @Html.ValidationMessageFor(model => model.MaHoa, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-3">
+                @Html.LabelFor(model => model.TenHoa, "Tên Hoa (*)", new { @class = "form-label" })
+                @Html.TextBoxFor(model => model.TenHoa, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TenHoa, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-3">
+                @Html.LabelFor(model => model.MaLoai, "Loại Hoa (*)", new { @class = "form-label" })
+                @Html.DropDownListFor(model => model.MaLoai, (SelectList)ViewBag.MaLoai, "-- Chọn Loại Hoa --", new { @class = "form-select" })
+                @Html.ValidationMessageFor(model => model.MaLoai, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    @Html.LabelFor(model => model.Gia, "Giá Bán (*)", new { @class = "form-label" })
+                    @Html.TextBoxFor(model => model.Gia, new { @class = "form-control", type = "number", min = "0" })
+                    @Html.ValidationMessageFor(model => model.Gia, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4 mb-3">
+                    @Html.LabelFor(model => model.SoLuongTon, "Số Lượng Tồn (*)", new { @class = "form-label" })
+                    @Html.TextBoxFor(model => model.SoLuongTon, new { @class = "form-control", type = "number", min = "0" })
+                    @Html.ValidationMessageFor(model => model.SoLuongTon, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4 mb-3">
+                    @Html.LabelFor(model => model.TrangThai, "Trạng Thái (Thủ công)", new { @class = "form-label" })
+                    @Html.DropDownListFor(model => model.TrangThai, new SelectList(new List<string> { "Còn hàng", "Hết hàng" }), new { @class = "form-select" })
+                </div>
+            </div>
+
+            <div class="mb-3">
+                @Html.LabelFor(model => model.MoTa, "Mô Tả", new { @class = "form-label" })
+                @Html.TextAreaFor(model => model.MoTa, new { @class = "form-control", rows = 4 })
+            </div>
+
+            <div class="mb-3">
+                @Html.LabelFor(model => model.HinhAnh, "Đường dẫn Hình Ảnh", new { @class = "form-label" })
+                @Html.TextBoxFor(model => model.HinhAnh, new { @class = "form-control" })
+                <small class="text-muted">Vui lòng nhập đường dẫn URL hình ảnh (ví dụ: /Images/Hoa01.jpg).</small>
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="btn btn-success"><i class="bi bi-save"></i> Lưu & Thêm Mới</button>
+                <a href="@Url.Action("QuanLySanPham", "Admin")" class="btn btn-secondary ms-2">Quay lại Danh Sách</a>
+            </div>
+        }
+    </div>
+</div>
